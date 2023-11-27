@@ -1,7 +1,5 @@
 
 
-
-  
   body {
     font-family: 'Work Sans', sans-serif;
     font-size: 16px;
@@ -96,19 +94,14 @@
     color: transparent;
   }
   
-  /*? sidebar top */
-  
-  .sidebar-top-wrapper {
-    display: flex;
-    background-color: var(--primary-color-light);
-  }
+
   
   .sidebar-top {
     position: relative;
     display: flex;
     align-items: start;
     justify-content: center;
-    flex-direction: column;
+ 
     overflow: hidden;
     height: 64px;
     padding-bottom: 16px;
@@ -124,7 +117,7 @@
     margin-top: -4px;
     display: flex;
     align-items: center;
-    color: #d6d6d6;
+    color: #000000;
     font-weight: 700;
     text-decoration: none;
     font-size: 1.35rem;
@@ -138,46 +131,21 @@
     overflow: hidden;
     object-fit: cover;
   }
-  
-  /*? menu links */
-  .sidebar-links {
-      width: 100%;
-      margin: 19px 26px;
 
-  }
-  
-  .sidebar-links h2 {
-    margin-left: 16px;
-    color: #fcfcfc;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 18px;
-    margin-bottom: 8px;
-    animation: fadeIn 0.2s ease-in-out;
-  }
-  
   body.collapsed h2 {
     display: none;
   }
-  
-  .sidebar-links ul {
-    list-style-type: none;
-    position: relative;
-    display: flex;
-    column-gap: 8px;
-    flex-direction: column;
-    margin: 0px;
-    padding: 0px;
-  }
-  
+ 
   .sidebar-links li {
     color:#020101;
+list-style: none;
   }
   
   body.collapsed .sidebar-links li {
     display: flex;
     justify-content: center;
     align-items: center;
+
   }
   
   .sidebar-links li svg {
@@ -185,10 +153,11 @@
     width: 28px;
     height: 28px;
     min-width: 28px;
+    margin: 3px;
   }
   
   .sidebar-links li a:hover {
-color: #040404;
+color: #414040;
   }
   
   .sidebar-links li a {
@@ -226,49 +195,13 @@ color:#d7c2af ;
     stroke: var(--text-link);
   }
   
-  
-  /* ?tooltip */
-  .tooltip {
-    position: relative;
-    margin-left: 46px;
-  }
-  
-  .tooltip .tooltip__content::after {
-    content: " ";
-    position: absolute;
-    top: 50%;
-    left: 22px;
-    margin-right: 10px;
-    margin-top: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent var(--primary-color) transparent transparent;
-  }
-  
-  .tooltip .tooltip__content {
-    visibility: hidden;
-    background-color: #aa0808;
-    color: var(--white);
-    text-align: center;
-
-    border-radius: 6px;
-    padding: 6px 12px;
-    position: absolute;
-    z-index: 1;
-
-  left: 90px;
-  }
-  
-  .collapsed .tooltip:hover .tooltip__content {
-    visibility: visible;
-  }
-  
   /*? profile part */
   .sidebar__profile {
     margin-top: 56px;
     display: flex;
-    align-items: center;
-    gap: 12px;
+ position: absolute;
+ bottom: 30px;
+    gap: 19px;
     flex-direction: row;
     padding: 0 16px;
     color: var(--text-link);
@@ -309,6 +242,7 @@ color:#d7c2af ;
     color: var(--text-link);
     font-size: 13px;
     animation: fadeIn 0.2s ease-in-out;
+    
   }
   
   .logout {
@@ -365,3 +299,33 @@ color:#d7c2af ;
       width: 100%;
     }
   }
+/* استایل عمومی */
+.custom-link {
+  margin-left: 46px;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  color: #27296d;
+  overflow: hidden;
+  width: 100%;
+  margin: 7px 26px;
+}
+
+/* استایل برای تغییر هاور */
+.custom-link::before {
+  content: '';
+  position: absolute;
+  width: calc(100% - 50px); /* اندازه خط بر اساس عرض متن - تغییر 20px برای حفظ هماهنگی */
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #27296d;
+  visibility: hidden;
+  transform: translateX(-50%) scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-link:hover::before {
+  visibility: visible;
+  transform: translateX(-50%) scaleX(1);
+}
